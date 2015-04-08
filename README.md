@@ -25,3 +25,5 @@ convert("10ms")
 
 ```
 
+Inspired by ms.js: https://github.com/rauchg/ms.js
+
