@@ -1,4 +1,4 @@
-defmodule MillsecConverter.Mixfile do
+defmodule Milliseconds.Mixfile do
   use Mix.Project
 
   def project do
