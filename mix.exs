@@ -8,6 +8,13 @@ defmodule Milliseconds.Mixfile do
      description: "Library to convert user-friendly names to milliseconds and vice-versa"]
   end
 
+  # Configuration for the OTP application
+  #
+  # Type `mix help compile.app` for more information
+  def application do
+    [applications: []]
+  end
+
   defp package do
     [ contributors: ["Dave Bryson"],
       licenses: [],
