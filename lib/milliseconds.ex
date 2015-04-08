@@ -1,4 +1,4 @@
-defmodule Millseconds do
+defmodule Milliseconds do
     @moduledoc """
         Library to convert user friendly names to milliseconds
 

@@ -1,6 +1,6 @@
 defmodule MillsecondsTest do
   use ExUnit.Case
-  import Millseconds
+  import Milliseconds
 
   test "hour conversion" do
     assert "1h" == convert(3600000)
