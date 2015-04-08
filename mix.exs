@@ -11,7 +11,7 @@ defmodule MillsecConverter.Mixfile do
   defp package do
     [ contributors: ["Dave Bryson"],
       licenses: [],
-      links: %{"GitHub" => "https://github.com/meh/jazz"} ]
+      links: %{"GitHub" => "https://github.com/davebryson/elixir_milliseconds"} ]
   end
 
 end
