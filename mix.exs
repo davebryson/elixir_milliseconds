@@ -26,7 +26,7 @@ defmodule Milliseconds.Mixfile do
 
   defp package do
     [ 
-      files: ["lib", "test", "mix.exs", "README*"]
+      files: ["lib", "test", "mix.exs", "README*"],
       contributors: ["Dave Bryson"],
       licenses: ["Apache 2.0"],
       links: %{"GitHub" => "https://github.com/davebryson/elixir_milliseconds"} 
