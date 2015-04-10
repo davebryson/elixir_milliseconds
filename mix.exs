@@ -2,23 +2,35 @@ defmodule Milliseconds.Mixfile do
   use Mix.Project
 
   def project do
-    [app: :milliseconds,
-     version: "0.0.1",
-     elixir: "~> 1.0",
-     description: "Library to convert user-friendly names to milliseconds and vice-versa"]
+    [ app: :milliseconds,
+      version: "0.0.1",
+      elixir: "~> 1.0",
+      description: description,
+      package: package,
+      description: description
+    ]
   end
 
-  # Configuration for the OTP application
-  #
-  # Type `mix help compile.app` for more information
   def application do
-    [applications: []]
+    []
   end
+
+  defp description do
+    """
+      Simple library to work with milliseconds.
+      Convert text to milliseconds: convert("2d")
+      Convert milliseconds to text: convert(8640000)
+      Calculate future time: future_time("6hrs")
+    """
+   end
 
   defp package do
-    [ contributors: ["Dave Bryson"],
-      licenses: [],
-      links: %{"GitHub" => "https://github.com/davebryson/elixir_milliseconds"} ]
+    [ 
+      files: ["lib", "test", "mix.exs", "README*"]
+      contributors: ["Dave Bryson"],
+      licenses: ["Apache 2.0"],
+      links: %{"GitHub" => "https://github.com/davebryson/elixir_milliseconds"} 
+    ]
   end
 
 end

@@ -1,8 +1,7 @@
-Millseconds
-===========
+Millseconds for Elixir
+======================
 
 Convert the word version of time to milliseconds and vice-versa.
-Makes your code a little more readable.  
 
 Examples
 --------
