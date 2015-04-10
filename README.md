@@ -19,8 +19,14 @@ convert(3600000)
 convert("2yrs")
   # => 6.31152e10
 
-# Expire something in 5 hrs
+# Calculate future time
 
+# Milliseconds 24 hours from now
+expires_tomorrow = future_time("24hrs")
+expires_later = future_time("6hrs")
+
+# Current time in milliseconds
+now = current_time_millis
 
 ```
 
