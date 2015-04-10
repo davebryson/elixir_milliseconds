@@ -1,13 +1,14 @@
 defmodule Milliseconds do
     @moduledoc """
-        Library to convert words to milliseconds and vice-versa
+        Simple library to work with milliseconds.
 
         Example:
+
             Millseconds.convert("2d") 
-            #=> 1211222
+                # => 1211222
 
             Millseconds.convert(1211222)
-            #=> "2d"
+                # => "2d"
     """
     @s 1000
     @m @s * 60
@@ -18,6 +19,7 @@ defmodule Milliseconds do
 
     @doc """
         Convert time in words to milliseconds.
+        
         Ex: Milliseconds.convert("1h")
             #=> 4000000
     """
@@ -35,6 +37,7 @@ defmodule Milliseconds do
 
     @doc """
         Convert milliseconds to words
+        
         Ex: Milliseconds.convert(4000000) 
             #=> "1h"
     """
