@@ -1,6 +1,6 @@
 defmodule Milliseconds do
     @moduledoc """
-        Library to convert user friendly names to milliseconds
+        Library to convert words to milliseconds and vice-versa
 
         Example:
             Millseconds.convert("2d") 
@@ -16,9 +16,8 @@ defmodule Milliseconds do
     @y @d * 365.25
     @pattern ~r/^((?:\d+)?\.?\d+) *(milliseconds?|msecs?|ms|seconds?|secs?|s|minutes?|mins?|m|hours?|hrs?|h|days?|d|years?|yrs?|y)?$/
 
-    
     @doc """
-        Convert use-friendly names to milliseconds.
+        Convert time in words to milliseconds.
         Ex: Milliseconds.convert("1h")
             #=> 4000000
     """
@@ -33,10 +32,9 @@ defmodule Milliseconds do
         end
     end
 
-    
 
     @doc """
-        Convert milliseconds to user-friendly names.
+        Convert milliseconds to words
         Ex: Milliseconds.convert(4000000) 
             #=> "1h"
     """
@@ -55,9 +53,32 @@ defmodule Milliseconds do
     def convert(value) when is_number(value) and value > @s, do: "#{round(value/@s)}secs"
     def convert(value) when is_number(value) and value == @s, do: "#{round(value/@s)}s"
     
-    def convert(value) when is_number(value),do: "#{value}ms" 
+    def convert(value) when is_number(value),do: "#{value}ms"
 
+
+    @doc """
+        Return the current time in milliseconds (since 1970)
+    """
+    def current_time_millis do
+        {mega, sec, micro} = :erlang.now
+        (mega * 1.0e6 + sec) * 1000 + round(micro/1000)
+    end 
+
+    @doc """
+        Calculate future time in milliseconds.
+
+        Example:
+          # Milliseconds 1 day from now
+          future_time("1d")
+
+          # Milliseconds 6 hrs from now
+          future_time("6hrs")
+    """
+    def future_time(word) when is_binary(word), do: convert(word) + current_time_millis
+    def future_time(value) when is_number(value), do: value + current_time_millis
     
+
+    # I love pattern matching...
     defp matchit([_,value, word]) when word == "years", do: value * @y
     defp matchit([_,value, word]) when word == "year", do: value * @y
     defp matchit([_,value, word]) when word == "yrs", do: value * @y
@@ -87,8 +108,6 @@ defmodule Milliseconds do
 
     defp matchit([_,value, word]) when word == "ms", do: value
     defp matchit([_,value, word]) when word == "milliseconds", do: value
-
-
 
     defp matchit([_,value]), do: value
     defp matchit(_), do: nil 

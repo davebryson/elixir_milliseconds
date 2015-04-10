@@ -35,4 +35,11 @@ defmodule MillsecondsTest do
     assert 1000 == convert("1000milliseconds")
     assert "10ms" == convert(10)
   end
+
+  test "future time in milliseconds" do
+    now = current_time_millis
+    assert future_time("1hr") > (now + 1.0e6)
+    assert future_time(2000) > (now + 1000)
+  end
+
 end
