@@ -23,6 +23,8 @@ convert("2yrs")
 
 # Milliseconds 24 hours from now
 expires_tomorrow = future_time("24hrs")
+
+# Milliseconds 6 hrs from now
 expires_later = future_time("6hrs")
 
 # Current time in milliseconds
